@@ -1,8 +1,8 @@
-package projecto;
+package Projecto;
 
 import java.util.Scanner;
 
-public class Helper {
+public class helper {
 	
 	public static void AskTask() {
 		
