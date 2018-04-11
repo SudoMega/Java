@@ -11,7 +11,6 @@ public class e5_4 {
 		double C;
 		double N;
 		double suma;
-		String[] tasks;
 		Scanner in = new Scanner(System.in);
 		
 		System.out.print("Ingrese A: ");
@@ -37,6 +36,8 @@ public class e5_4 {
 			System.out.println("No, eso no funciona  " + suma + " = " + Math.pow(C, N));
 			System.out.println("Fermat esta en lo correcto ");
 		}
+		
+		in.close();
 		
 	}
 	
