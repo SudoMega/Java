@@ -2,7 +2,7 @@ package Projecto;
 
 import java.util.Scanner;
 
-public class helper {
+public class Helper {
 	
 	public static void AskTask() {
 		
