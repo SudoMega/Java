@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class e6_8 {
 
-	public static long ack(long m, long n) {
+	public static int ack(int m, int n) {
 		
 		      if (m == 0) return n + 1;
 		      
@@ -19,9 +19,9 @@ public class e6_8 {
 		System.out.println("Funcion de Ackermann!");
 		System.out.println("Trate de ingresar numeros no negativos enteros menores a 3");
 		System.out.print("Ingrese M: ");
-		long m = in.nextInt();
+		int m = in.nextInt();
 		System.out.print("Ingrese N: ");
-		long n = in.nextInt();
+		int n = in.nextInt();
 		System.out.print(ack(m, n));
 		in.close();
 	}
