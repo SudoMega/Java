@@ -29,7 +29,7 @@ public class Assistant {
 		int op;
 		int on = 1;
 		
-		System.out.println("Bienvenido, porfavor ingrese unaa de las siguientes opciones:");
+		System.out.println("Bienvenido, porfavor ingrese una de las siguientes opciones:");
 		
 		while (on == 1) {
 			
