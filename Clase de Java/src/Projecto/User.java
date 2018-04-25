@@ -2,6 +2,6 @@ package Projecto;
 
 public class User {
 
-	String Name;
+	String name;
 	
 }

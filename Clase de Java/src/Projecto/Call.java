@@ -12,7 +12,7 @@ public class Call {
 	
 	
 	//METODO PARA RECIBIR LLAMADAS Y INGRESARLAS A "lostCalls" (aun no esta terminado)
-	public static Call IncomingCall(Call llamada) { 
+	public static Call IncomingCall(Call llamada, int x) { 
 		                                            
 		return llamada;
 	}
