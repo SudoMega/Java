@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class Assistant {
 		
-	public static void main(String[] args){
+	public static void main(String[] args){   //El main crea solo el menu y los objetos
 		
 		Scanner in = new Scanner(System.in);
 		int op;
 		int on = 1;
 		String Tarea;
-		TaskList lista = new TaskList();  // Crea el objeto "lista" de TaskList
+		TaskList lista = new TaskList();  // Crea el objeto "lista" de la clase TaskList
+		Call llamada = new Call();        // Crea el objeto "llamada" de la clase Call (actualmente no se utiliza)
 		
 		System.out.println("Bienvenido, porfavor ingrese una de las siguientes opciones:");
 		
@@ -34,7 +35,7 @@ public class Assistant {
                	case 2:  TaskList.ShowTaskList(lista);
                	         break;
                	         
-               	case 3:  if (lista.list.size() == 0) {System.out.println("No hay tareas!"); break;}
+               	case 3:  if (lista.list.size() == 0) {System.out.println("No hay tareas!"); break;} //esta es la unica instancia que le pregunto en el main sobre el objeto directamente, para facilitarle el uso al usuario
                		     System.out.println("Ingrese el numero de la tarea que desea eliminar");
 		                 op = in.nextInt(); 
                		     lista = TaskList.RemoveTask(lista,op);;
