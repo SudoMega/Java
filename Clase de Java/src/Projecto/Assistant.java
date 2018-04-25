@@ -1,10 +1,11 @@
 package Projecto;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Assistant {
 		
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		
 		Scanner in = new Scanner(System.in);
 		int op;
@@ -19,6 +20,7 @@ public class Assistant {
 			System.out.println("1- Agregar una tarea");
 			System.out.println("2- Leer sus tareas del dia");
 			System.out.println("3- Eliminar una tarea");
+			System.out.println("4- Ver las noticias del Dia");
 			op = in.nextInt();
 			in.nextLine();
 			
@@ -37,6 +39,10 @@ public class Assistant {
 		                 op = in.nextInt(); 
                		     lista = TaskList.RemoveTask(lista,op);;
                	         break;
+               	         
+               	case 4: try {News.ReadNews();}
+               	        catch (IOException e) {System.out.println("No pudimos establecer conección con sus noticias");}
+               	        break;
                
 		    }
 		
