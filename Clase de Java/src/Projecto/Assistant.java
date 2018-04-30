@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 /*
  * tarea, id, string, hora y fecha
- * llamadas id, numero, hora, fecha, llamadasperdidas, mensaje, llamadasdel dia 
+ * 
  * news id, fecha hora, header, url, subtitulo
  * 
  * 
