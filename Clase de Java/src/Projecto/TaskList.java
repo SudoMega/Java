@@ -17,7 +17,7 @@ public class TaskList {
 	public static void AddTask(Task task) {  
 		
 		list.add(task);
-		
+		list.get(list.size()-1).ChangeId(list.size()-1);
 	}
 	
 	//METODO PARA REMOVER TAREAS DE LA LISTA 
@@ -37,7 +37,7 @@ public class TaskList {
 		else
 		for(int i=0;i < list.size();i++) {
 			
-			System.out.println((i+1) + ": " + list.get(i).Message);
+			System.out.println((i+1) + ": " + list.get(i).GetMessage());
 			
 		}
 		
