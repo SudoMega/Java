@@ -57,18 +57,21 @@ public class Assistant {
                	        catch (IOException e) {System.out.println("No pudimos establecer conección con sus noticias");}
                	        break;
                	        
-               	case 5:System.out.println("Se ingreso un numero al azar, ¿quiere dejar un mensaje?(true/false)");
-                       Boolean y = in.nextBoolean();
-               	       if (y == true) {
+               	case 5:System.out.println("Se ingreso un numero al azar, ¿quiere dejar un mensaje?(1:si/2:no)");
+                       int y = in.nextInt();
+                       in.nextLine();
+               	       if (y == 1) {
                	       System.out.println("Ingrese el mensaje:");
                	       String mensaje = in.nextLine();
                	       in.nextLine();
                	       call = new Call(0, mensaje);
-      //        	       listaLlamadas.AddCall(call);
+             	       listaLlamadas.AddCall(call);
+             	       break;
                	       }
-               	       else {call = new Call(0, null);  break;}
+               	       else {call = new Call(0, null); listaLlamadas.AddCall(call);  break;}
                		
-               	case 6:
+               	case 6:listaLlamadas.CheckAllCalls();
+               	       break;
                
 		    }
 		

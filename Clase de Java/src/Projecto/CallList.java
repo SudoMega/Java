@@ -14,13 +14,13 @@ public class CallList {
         callsOfTheDay = new ArrayList<Call>();
     }
     
-	public void AddTask(Call call) {  
+	public void AddCall(Call call) {  
 		
 		lostCalls.add(call);
 		lostCalls.get(lostCalls.size()-1).ChangeId(lostCalls.size()-1);
 	}
     
-	public Call CheckAllCalls(Call llamada) { 
+	public void CheckAllCalls() { 
 		
 		if (lostCalls.size() == 0) System.out.println("No hay llamdas perdidas!");  //Muestra las llamadas perdidas
 		
@@ -28,25 +28,29 @@ public class CallList {
 			System.out.println("Llamadas Perdidas: ");
 		for(int i=0;i < lostCalls.size();i++) {
 			
-			System.out.println((i+1) + ": " + lostCalls.get(i));
-			
+			if(lostCalls.get(i).GetMessage()!= null) {
+			     System.out.println(lostCalls.get(i).GetDate() + "("+ lostCalls.get(i).GetNumber() + "): " + lostCalls.get(i).GetMessage());
+			}
+			else System.out.println(lostCalls.get(i).GetDate() + "("+ lostCalls.get(i).GetNumber() + "): No hay mensaje");
 		}
 		if (callsOfTheDay.size() == 0) System.out.println("No hay llamdas en el registro de hoy"); //Muestra todas las llamadas del dia
 		
-		else
-		for(int i=0;i < callsOfTheDay.size();i++) {
+		else {
 			System.out.println("Llamadas del dia: ");
-			System.out.println((i+1) + ": " + callsOfTheDay.get(i));
-			
+		    for(int i=0;i < callsOfTheDay.size();i++) {
+		       	if(callsOfTheDay.get(i).GetMessage()!= null) {
+			         System.out.println(callsOfTheDay.get(i).GetDate() + "("+ callsOfTheDay.get(i).GetNumber() + "): " + callsOfTheDay.get(i).GetMessage());
+		    	}
+			    else System.out.println(callsOfTheDay.get(i).GetDate() + "("+ callsOfTheDay.get(i).GetNumber() + "): No hay mensaje");
+		    }
 		}
-		
-		if (lostCalls.size() != 0) {  //Pasa las llamadas perdidas a llamadas del dia
+		if (lostCalls.size() > 0) {  //Pasa las llamadas perdidas a llamadas del dia
 			
 			callsOfTheDay.addAll(lostCalls);
 			lostCalls.clear();
 			
 		}
 		
-		return llamada;
+
 	}
 }
