@@ -1,17 +1,19 @@
 package Projecto;
-import java.util.Date;
+import java.text.DateFormat;
 
 public class Task {
 	//tarea, id, string, hora y fecha
 	
 	private int id;
-	public String Message; // Esto es lo que dice la tarea, por ejemplo, leer el diario
-	public Date hora;
+	private String message; // Esto es lo que dice la tarea, por ejemplo, leer el diario
+	private String date;
+//    DateFormat Date = new SimpleDateFormat("yyyy-MM-dd");
+//   Date date = new Date();
 	
-	public Task(int TaskId, String text) {
+	public Task(int TaskId, String text, String tiempo) {
 		
-		Message = text;
-		
+		message = text;
+		date = tiempo;
 	}
 	
 	public void ChangeId(int TaskId) {
@@ -20,7 +22,12 @@ public class Task {
 	
 	public String GetMessage() {
 		
-		return Message;
+		return message;
+	}
+
+	public String GetDate() {
+		
+		return date;
 	}
 	
 }

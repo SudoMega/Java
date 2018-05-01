@@ -36,7 +36,9 @@ public class Assistant {
         
 			    case 1:  System.out.println("Ingrese una tarea para el dia");
 				         Tarea = in.nextLine();
-				         task = new Task(0, Tarea);
+				         System.out.println("Ingrese la hora (minutos-hora)");
+				         String tiempo = in.nextLine();
+				         task = new Task(0, Tarea, tiempo);
 			    	     TaskList.AddTask(task);
 			             break;
 			    

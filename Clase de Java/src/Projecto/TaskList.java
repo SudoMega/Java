@@ -1,12 +1,19 @@
 package Projecto;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class TaskList {
 
 	private static ArrayList<Task> list;
 	
-	//CONSTRUCTOR VACIO
+	Calendar C = new GregorianCalendar();
+    int hour = C.get( Calendar.HOUR_OF_DAY );
+    int minute = C.get( Calendar.MINUTE );
+	
+    
+    //CONSTRUCTOR VACIO
     public TaskList()
     {
         list = new ArrayList<Task>();
@@ -37,9 +44,11 @@ public class TaskList {
 		else
 		for(int i=0;i < list.size();i++) {
 			
-			System.out.println((i+1) + ": " + list.get(i).GetMessage());
+			System.out.println((i+1) + "(" + list.get(i).GetDate() + "): " + list.get(i).GetMessage());
 			
 		}
+		
+		
 		
 		
 	}
