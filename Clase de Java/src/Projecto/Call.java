@@ -1,24 +1,48 @@
 package Projecto;
 
-import java.util.ArrayList;
-
+import java.util.Random;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class Call {
-
+	
 	
 	//llamadas id, numero, hora, fecha, llamadasperdidas, mensaje, llamadasdel dia 
 	
-	int number; // Numero de la llamada
-	int timer;  // Tiempo que lleva la llamada desde que empezo
+	int id;
+	int number;
+	String initialDate;
+	String message;
 	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	Date date = new Date();
 	
-	//METODO PARA RECIBIR LLAMADAS Y INGRESARLAS A "lostCalls" (aun no esta terminado)
-	public static Call IncomingCall(Call llamada, int x) { 
-		                                            
-		return llamada;
+	Random rand = new Random();
+	
+    public Call(int CallId, String text) {
+		id = CallId;
+		number = rand.nextInt(40000000) + 5000000;
+		initialDate = dateFormat.format(date);
+		message = text;
 	}
 	
-	//METODO PARA REVISAR LAS LLAMADAS DEL DIA Y PASAR LAS LLAMADAS PERDIDAS A LLAMADAS DEL DIA
-
-	
+	public void ChangeId(int CallId) {
+		id = CallId;
+	}
+    
+    public int GetNumber() {
+    	
+    	return number;
+    }
+    
+    public String GetDate() {
+    	
+    	return initialDate;
+    }
+    public String GetMessage() {
+    	
+    	return message;
+    }
+    
 }

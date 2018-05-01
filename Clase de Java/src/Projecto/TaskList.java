@@ -1,18 +1,12 @@
 package Projecto;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class TaskList {
 
-	private static ArrayList<Task> list;
+	private  ArrayList<Task> list;
 	
-	Calendar C = new GregorianCalendar();
-    int hour = C.get( Calendar.HOUR_OF_DAY );
-    int minute = C.get( Calendar.MINUTE );
 	
-    
     //CONSTRUCTOR VACIO
     public TaskList()
     {
@@ -21,14 +15,14 @@ public class TaskList {
 	
 	
 	//METODO PARA AGREGAR TAREAS A LA LISTA
-	public static void AddTask(Task task) {  
+	public void AddTask(Task task) {  
 		
 		list.add(task);
 		list.get(list.size()-1).ChangeId(list.size()-1);
 	}
 	
 	//METODO PARA REMOVER TAREAS DE LA LISTA 
-	public static void RemoveTask(int x) {
+	public void RemoveTask(int x) {
 		
 		if (list.size() == 0) System.out.println("No hay tareas!");
 		else if(list.size() >= x) list.remove(x-1);
@@ -37,7 +31,7 @@ public class TaskList {
 	}
 	
     //METODO PARA MOSTRAR LO QUE CONTIENE LA LISTA DE TAREAS
-	public static void ShowTaskList() {
+	public void ShowTaskList() {
 		
 		if (list.size() == 0) System.out.println("No hay tareas!");
 		
