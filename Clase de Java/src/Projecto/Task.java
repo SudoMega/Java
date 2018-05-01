@@ -8,6 +8,11 @@ public class Task {
 	public String Message; // Esto es lo que dice la tarea, por ejemplo, leer el diario
 	public Date hora;
 	
-	
+	public Task(int TaskId, String text) {
+		
+		id = TaskId;
+		Message = text;
+		
+	}
 	
 }

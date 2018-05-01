@@ -17,6 +17,7 @@ public class Assistant {
 		int op;
 		int on = 1;
 		String Tarea;
+		Task task;
 		TaskList lista = new TaskList();  // Crea el objeto "lista" de la clase TaskList
 		Call llamada = new Call();        // Crea el objeto "llamada" de la clase Call (actualmente no se utiliza)
 		
@@ -35,16 +36,16 @@ public class Assistant {
         
 			    case 1:  System.out.println("Ingrese una tarea para el dia");
 				         Tarea = in.nextLine();
-			    	     lista = TaskList.AddTask(lista,Tarea);
+				         task = new Task(0, Tarea);
+			    	     TaskList.AddTask(task);
 			             break;
 			    
-               	case 2:  TaskList.ShowTaskList(lista);
+               	case 2:  TaskList.ShowTaskList();
                	         break;
                	         
-               	case 3:  if (lista.list.size() == 0) {System.out.println("No hay tareas!"); break;} //esta es la unica instancia que le pregunto en el main sobre el objeto directamente, para facilitarle el uso al usuario
-               		     System.out.println("Ingrese el numero de la tarea que desea eliminar");
+               	case 3:  System.out.println("Ingrese el numero de la tarea que desea eliminar");
 		                 op = in.nextInt(); 
-               		     lista = TaskList.RemoveTask(lista,op);;
+               		     TaskList.RemoveTask(op);
                	         break;
                	         
                	case 4: try {News.ReadNews();}
