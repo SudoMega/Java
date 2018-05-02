@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class CallList {
 
 	
-	ArrayList<Call> lostCalls;      // Lista para guardar las llamadas perdidas
-    ArrayList<Call> callsOfTheDay;  // Lista de las llamadas del dia
+	private ArrayList<Call> lostCalls;      // Lista para guardar las llamadas perdidas
+    private ArrayList<Call> callsOfTheDay;  // Lista de las llamadas del dia
 	
     public CallList()
     {

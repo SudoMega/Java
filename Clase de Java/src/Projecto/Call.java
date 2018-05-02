@@ -7,13 +7,10 @@ import java.text.SimpleDateFormat;
 
 public class Call {
 	
-	
-	//llamadas id, numero, hora, fecha, llamadasperdidas, mensaje, llamadasdel dia 
-	
-	int id;
-	int number;
-	String initialDate;
-	String message;
+	private int id;
+	private int number;
+	private String initialDate;
+	private String message;
 	
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	Date date = new Date();
@@ -22,7 +19,7 @@ public class Call {
 	
     public Call(int CallId, String text) {
 		id = CallId;
-		number = rand.nextInt(40000000) + 5000000;
+		number = rand.nextInt(4000000) + 5000000;
 		initialDate = dateFormat.format(date);
 		message = text;
 	}

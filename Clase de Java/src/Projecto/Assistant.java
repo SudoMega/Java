@@ -2,13 +2,7 @@ package Projecto;
 
 import java.io.IOException;
 import java.util.Scanner;
-/*
- * tarea, id, string, hora y fecha
- * 
- * news id, fecha hora, header, url, subtitulo
- * 
- * 
- */
+
 public class Assistant {
 		
 	public static void main(String[] args){   //El main crea solo el menu y los objetos
@@ -63,7 +57,6 @@ public class Assistant {
                	       if (y == 1) {
                	       System.out.println("Ingrese el mensaje:");
                	       String mensaje = in.nextLine();
-               	       in.nextLine();
                	       call = new Call(0, mensaje);
              	       listaLlamadas.AddCall(call);
              	       break;

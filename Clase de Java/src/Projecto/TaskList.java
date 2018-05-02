@@ -22,10 +22,10 @@ public class TaskList {
 	}
 	
 	//METODO PARA REMOVER TAREAS DE LA LISTA 
-	public void RemoveTask(int x) {
+	public void RemoveTask(int index) {
 		
 		if (list.size() == 0) System.out.println("No hay tareas!");
-		else if(list.size() >= x) list.remove(x-1);
+		else if(list.size() >= index) list.remove(index-1);
 		else System.out.println("El numero que ingreso no pertenece a una tarea");
 		
 	}
