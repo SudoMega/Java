@@ -19,10 +19,12 @@ public class JavaFXCalculator extends Application {
    private TextField tfDisplay;    // display textfield
    private Button[] btns;          // 16 buttons
    private String[] btnLabels = {  // Labels of 16 buttons
-      "7", "8", "9", "+",
-      "4", "5", "6", "-",
-      "1", "2", "3", "x",
-      "C", "0", "=", "/"
+      "7", "8", "9", "+","X²",
+      "4", "5", "6", "-","sqrt",
+      "1", "2", "3", "x","+/-",
+      "C", "0", "=", "/","%",
+      "M"
+
    };
    // For computation
    private int result = 0;      // Result of computation
@@ -67,10 +69,30 @@ public class JavaFXCalculator extends Application {
             compute();
             lastOperator = '/';
             break;
-         case "=":
+         case "X²":
             compute();
-            lastOperator = '=';
+            lastOperator = '²';
             break;
+         case "sqrt":
+             compute();
+             lastOperator = 'r';
+             break;
+         case "+/-":
+             compute();
+             lastOperator = '$';
+             break;
+         case "%":
+             compute();
+             lastOperator = '%';
+             break;
+         
+         // Store a value    
+         case "M":
+             result = 0;
+             inStr = "0";
+             lastOperator = ' ';
+             tfDisplay.setText("0");
+             break;
 
          // Clear button
          case "C":
@@ -98,6 +120,16 @@ public class JavaFXCalculator extends Application {
          result *= inNum;
       } else if (lastOperator == '/') {
          result /= inNum;
+      } else if (lastOperator == '²') { //x²
+          result = result * result;
+      } else if (lastOperator == 'r') {
+       //   result = Math.sqrt(result);
+      } else if (lastOperator == '$') { // +/-
+          result /= inNum;
+      } else if (lastOperator == '%') {
+          result *= -1;
+      } else if (lastOperator == 'M') {
+          result /= inNum;
       } else if (lastOperator == '=') {
          // Keep the result for the next operation
       }
@@ -113,7 +145,7 @@ public class JavaFXCalculator extends Application {
       tfDisplay.setAlignment(Pos.CENTER_RIGHT);
 
       // Setup a GridPane for 4x4 Buttons
-      int numCols = 4;
+      int numCols = 5;
       int numRows = 4;
       GridPane paneButton = new GridPane();
       paneButton.setPadding(new Insets(15, 0, 15, 0));  // top, right, bottom, left
@@ -129,7 +161,7 @@ public class JavaFXCalculator extends Application {
       }
 
       // Setup 16 Buttons and add to GridPane; and event handler
-      btns = new Button[16];
+      btns = new Button[21];
       for (int i = 0; i < btns.length; ++i) {
          btns[i] = new Button(btnLabels[i]);
          btns[i].setOnAction(handler);  // Register event handler
