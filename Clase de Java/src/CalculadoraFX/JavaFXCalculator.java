@@ -19,7 +19,7 @@ public class JavaFXCalculator extends Application {
    private TextField tfDisplay;    // display textfield
    private Button[] btns;          // 16 buttons
    private String[] btnLabels = {  // Labels of 16 buttons
-      "7", "8", "9", "+","X²",
+      "7", "8", "9", "+","X",
       "4", "5", "6", "-","sqrt",
       "1", "2", "3", "x","+/-",
       "C", "0", "=", "/","%",
@@ -27,7 +27,7 @@ public class JavaFXCalculator extends Application {
 
    };
    // For computation
-   private int result = 0;      // Result of computation
+   private double result = 0;      // Result of computation
    private String inStr = "0";  // Input number as String
    // Previous operator: ' '(nothing), '+', '-', '*', '/', '='
    private char lastOperator = ' ';
@@ -69,7 +69,8 @@ public class JavaFXCalculator extends Application {
             compute();
             lastOperator = '/';
             break;
-         case "X²":
+         case "X":
+        	
             compute();
             lastOperator = '²';
             break;
@@ -85,7 +86,11 @@ public class JavaFXCalculator extends Application {
              compute();
              lastOperator = '%';
              break;
-         
+         case "=":
+             compute();
+             lastOperator = '=';
+             break;
+             
          // Store a value    
          case "M":
              result = 0;
@@ -123,11 +128,11 @@ public class JavaFXCalculator extends Application {
       } else if (lastOperator == '²') { //x²
           result = result * result;
       } else if (lastOperator == 'r') {
-       //   result = Math.sqrt(result);
+          result = Math.sqrt(result);
       } else if (lastOperator == '$') { // +/-
-          result /= inNum;
+          result = -result;
       } else if (lastOperator == '%') {
-          result *= -1;
+          result = (result/inNum)*100;
       } else if (lastOperator == 'M') {
           result /= inNum;
       } else if (lastOperator == '=') {
