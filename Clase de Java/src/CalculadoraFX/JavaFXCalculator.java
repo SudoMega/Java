@@ -7,10 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.Priority;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -28,6 +31,7 @@ public class JavaFXCalculator extends Application {
    };
    // For computation
    private double result = 0;      // Result of computation
+   private double storage = 0;
    private String inStr = "0";  // Input number as String
    // Previous operator: ' '(nothing), '+', '-', '*', '/', '='
    private char lastOperator = ' ';
@@ -93,14 +97,32 @@ public class JavaFXCalculator extends Application {
              
          // Store a value    
          case "M":
-             result = 0;
+             if (storage == 0) {
+            	 if(result == 0) {
+             storage = Double.parseDouble(inStr); 
+        	 result = 0;
              inStr = "0";
              lastOperator = ' ';
              tfDisplay.setText("0");
+            	 }
+            	 else {
+                     storage = result; 
+                	 result = 0;
+                     inStr = "0";
+                     lastOperator = ' ';
+                     tfDisplay.setText("0"); 
+            	 }
+             }
+            	 
+             else {
+            	 inStr = Double.toString(storage);
+            	 tfDisplay.setText(inStr);
+             }
              break;
 
          // Clear button
          case "C":
+        	storage = 0;
             result = 0;
             inStr = "0";
             lastOperator = ' ';
@@ -113,7 +135,7 @@ public class JavaFXCalculator extends Application {
    // Perform computation on the previous result and the current input number,
    // based on the previous operator.
    private void compute() {
-      int inNum = Integer.parseInt(inStr);
+      double inNum = Double.parseDouble(inStr);
       inStr = "0";
       if (lastOperator == ' ') {
          result = inNum;
@@ -134,7 +156,7 @@ public class JavaFXCalculator extends Application {
       } else if (lastOperator == '%') {
           result = (result/inNum)*100;
       } else if (lastOperator == 'M') {
-          result /= inNum;
+        //  Keep the result for the next operation
       } else if (lastOperator == '=') {
          // Keep the result for the next operation
       }
@@ -184,6 +206,7 @@ public class JavaFXCalculator extends Application {
       primaryStage.setScene(new Scene(root, 300, 300));
       primaryStage.setTitle("JavaFX Calculator");
       primaryStage.show();
+
    }
 
    public static void main(String[] args) {
