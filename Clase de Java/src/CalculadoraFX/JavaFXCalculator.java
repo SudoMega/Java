@@ -168,6 +168,7 @@ public class JavaFXCalculator extends Application {
    public void start(Stage primaryStage) {
       // Setup the Display TextField
       tfDisplay = new TextField("0");
+      tfDisplay.setStyle("-fx-font: 22 arial;-fx-background-color: #000000bf;-fx-background-radius: 10;-fx-text-inner-color: white;");
       tfDisplay.setEditable(false);
       tfDisplay.setAlignment(Pos.CENTER_RIGHT);
 
@@ -190,7 +191,9 @@ public class JavaFXCalculator extends Application {
       // Setup 16 Buttons and add to GridPane; and event handler
       btns = new Button[21];
       for (int i = 0; i < btns.length; ++i) {
+    	  
          btns[i] = new Button(btnLabels[i]);
+         btns[i].setStyle("-fx-font: 21 arial; -fx-base: #000000;-fx-background-radius: 9;");
          btns[i].setOnAction(handler);  // Register event handler
          btns[i].setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);  // full-width
          paneButton.add(btns[i], i % numCols, i / numCols);  // control, col, row
