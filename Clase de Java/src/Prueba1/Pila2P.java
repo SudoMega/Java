@@ -8,9 +8,6 @@ package Prueba1;
 
 import java.util.Random;
 import java.util.Scanner;
-
-import JuegoGatoPoo.GameState;
-
 public class Pila2P {
 
 public static void PilaPush(int[] S, int x) {

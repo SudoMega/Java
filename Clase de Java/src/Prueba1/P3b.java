@@ -3,8 +3,9 @@
  * cada contenedor tiene un numero al azar dentro, pero no se utiliza en este codigo
  *  
  * lo que hace el programa es darle un id a cada contenedor, este utiliza una formula simple
- * lo que hace que todos los id sean entre 1001 y 5050. La priimera parte es por ejemplo 
- * contenedor 40 y pila 20 = id 2040
+ * lo que hace que todos los id sean entre 0000 y 5050 (exepto todos los XX51 a XX99). La priimera parte es por ejemplo 
+ * pila 20 y contenedor 40 => idContenedor 4020
+ * de 1 a 50 en los primeros 2 digitos y en los 2 ultimos
  * 
  * el id de la pila es lo mismo que su ubicacion en esta, aun asi cuenta con su propio metodo y se utilizan
  * ambos id para realizar algunos calculos
