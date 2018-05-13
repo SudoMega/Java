@@ -1,7 +1,13 @@
+/**
+ * EL BARCO PUEDE TENER 50 PILAS CON 50 CONTENEDORES CADA UNA
+ * 
+ * A esta parte del codigo no le hice main porque no se solicito en la prueba, pero se puede comprobar su funcionalidad con las clases P3a y P3b
+ * ademas funciona de igual manera que las anteriores preguntas, solo que con un contenedor envez de numeros
+ * y con un barco para tener todo mas ordenado
+ * 
+ */
+
 package Prueba1;
-
-//EL BARCO PUEDE TENER 50 PILAS CON 50 CONTENEDORES CADA UNA
-
 public class Barco {
 
 	private PilaOOb[] pilas = new PilaOOb[51];
