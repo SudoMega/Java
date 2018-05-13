@@ -1,5 +1,8 @@
 /**
  * EL PROGRAMA NO CUENTA CON UN MENU, PERO DEMUESTRA TODAS SUS FUNCIONALIDADES AL EJECUTARLO 
+ * 
+ * Este codigo le pide al usuario ingresar 3 numeros a la lista, luego realiza 2 pop y saca los 2 ultimos numeros en ingresar, borrandolos de la lista
+ * luego pregunta si esta vacia, finalmente repite los dos ultiimos pasos
  */
 package Prueba1;
 
