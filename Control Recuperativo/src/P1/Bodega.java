@@ -14,15 +14,15 @@ public class Bodega {
 	
 public void AddProducto(Producto producto) { 
 	
-	if (listaEmpleados.size() > 0) listaProductos.add(producto);
+	if (listaEmpleados.size() > 0) { listaProductos.add(producto);}
 	else System.out.println("No hay empleados!"); 
 	}
 	
 public void RemoveProducto(int index) {
 	
 	if (listaProductos.size() == 0) System.out.println("No hay productos!");
-	else if(listaProductos.size() >= index) listaProductos.remove(index-1);
-	else System.out.println("esa no es una tarea");
+	else if(listaProductos.size() >= index)  listaProductos.remove(index-1);
+	else System.out.println("No hay productos");
 	
 }
 

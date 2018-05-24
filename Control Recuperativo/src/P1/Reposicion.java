@@ -14,9 +14,9 @@ listaEmpleados = new ArrayList<EmpleadoReposicion>();
 	}
 	
 public void addBodega(Producto producto, Bodega bodega) { 
-	if (listaEmpleados.size() > 0)	bodega.AddProducto(producto);
+	if (listaEmpleados.size() > 0)	{bodega.AddProducto(producto); bodega.PonerEnPasillo(producto);}
 	
-	else System.out.println("No hay empleados para vender!"); 
+	else System.out.println("No hay empleados para mover los productos!"); 
 	
 
 	}
