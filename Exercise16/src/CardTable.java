@@ -1,4 +1,4 @@
-package Exercise12;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,14 +12,10 @@ public class CardTable extends Canvas {
    private Image[][] images;
    private int cardWidth, cardHeight;
 
-   /**
-    * Creates a CardTable.
-    * cardset is the name of the folder that contains the card images.
-    */
    public CardTable(String cardset) {
       setBackground(new Color(0x088A4B));
    
-      // create a 2-D array of card images
+
       images = new Image[14][4];
       String suits = "cdhs";
    
@@ -33,28 +29,21 @@ public class CardTable extends Canvas {
          }
       }
    
-      // get the width and height of the cards and set the size of
-      // the frame accordingly
+
       cardWidth = images[1][1].getWidth(null);
       cardHeight = images[1][1].getHeight(null);
    
-      // set the size temporarily to get the insets
+
       setTableSize(14, 4);
    }
 
-   /**
-    * Sets the table size.
-    * x and y are in units of card width/height.
-    */
+
    public void setTableSize(double x, double y) {
       setSize((int) (x * cardWidth),
              (int) (y * cardHeight));
    }
 
-   /**
-    * Draws a card at the given coordinates.
-    * x and y are in units of card width/height.
-    */
+
    public void drawCard(Graphics g, int rank, int suit, double x, double y) {
       Image image = images[rank][suit];
       g.drawImage(image,
@@ -63,9 +52,7 @@ public class CardTable extends Canvas {
                  null);
    }
 
-   /**
-    * Special method invoked when the Frame needs to be drawn.
-    */
+
    public void paint(Graphics g) {
       for (int rank = 1; rank <= 13; rank++) {
          for (int suit = 0; suit <= 3; suit++) {
@@ -77,16 +64,16 @@ public class CardTable extends Canvas {
    }
 
    public static void main(String[] args) {
-      // make the frame
+
       JFrame frame = new JFrame("Card Table");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    
-      // add the CardTable
+
       String cardset = "cardset-oxymoron";
       Canvas canvas = new CardTable(cardset);
       frame.getContentPane().add(canvas);
    
-      // show the frame
+
       frame.pack();
       frame.setVisible(true);
    }
