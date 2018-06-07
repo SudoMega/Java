@@ -1,40 +1,22 @@
-//JCalendar
-
 package Projecto;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JTextField;
-import javax.swing.JScrollBar;
-import javax.swing.JComboBox;
-import javax.swing.JList;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.LineBorder;
-
-
-import javax.swing.border.EtchedBorder;
-import javax.swing.ListSelectionModel;
-import javax.swing.AbstractListModel;
-import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JFormattedTextField;
-import javax.swing.JEditorPane;
-import javax.swing.JScrollPane;
 
-public class AssistenteSwing {
+import javax.swing.AbstractListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.LineBorder;
+
+class AssistentSwing {
+
 
 	private JFrame frmAssistant;
 	private JTextField txtHola;
@@ -99,8 +81,26 @@ public class AssistenteSwing {
 
 		list.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		list.setToolTipText("");
-		list.setBounds(20, 41, 275, 137);
+		list.setBounds(20, 39, 275, 137);
 		frmAssistant.getContentPane().add(list);
+		
+		JList list_1 = new JList();
+
+		list_1.setValueIsAdjusting(true);
+		list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list_1.setModel(new AbstractListModel() {
+			
+			String[] values = listaTareas.getLista();
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		list_1.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		list_1.setBounds(20, 212, 275, 155);
+		frmAssistant.getContentPane().add(list_1);
 		
 		JLabel lblNewLabel = new JLabel("Llamadas Perdidas\r\n");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -147,31 +147,6 @@ public class AssistenteSwing {
 		MensajeCalls.setFont(new Font("Segoe Script", Font.PLAIN, 25));
 		MensajeCalls.setBounds(30, 415, 265, 44);
 		frmAssistant.getContentPane().add(MensajeCalls);
-				
-				JList list_1 = new JList();
-				
-						list_1.setValueIsAdjusting(true);
-						list_1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-						list_1.setModel(new AbstractListModel() {
-							
-							String[] values = listaTareas.getLista();
-							public int getSize() {
-								return values.length;
-							}
-							public Object getElementAt(int index) {
-								return values[index];
-							}
-						});
-						list_1.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-						list_1.setBounds(20, 214, 275, 155);
-						frmAssistant.getContentPane().add(list_1);
-				
-				list_1.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						MensajeCalls.setText(listaLlamadas.getCallsOfTheDayMessege(list_1.getSelectedIndex()));
-					}
-				});
 		frmAssistant.setBounds(100, 100, 660, 500);
 		frmAssistant.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -249,5 +224,14 @@ public class AssistenteSwing {
 				MensajeCalls.setText(listaLlamadas.getLostCallsMessege(list.getSelectedIndex()));
 			}
 		});
+		
+		list_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MensajeCalls.setText(listaLlamadas.getCallsOfTheDayMessege(list_1.getSelectedIndex()));
+			}
+		});
 	}
+
+	
 }
