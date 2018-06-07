@@ -74,7 +74,7 @@ public class AssistenteSwing {
 		frmAssistant.setTitle("Assistant");
 		frmAssistant.setResizable(false);
 		frmAssistant.getContentPane().setForeground(new Color(0, 0, 0));
-		frmAssistant.getContentPane().setBackground(new Color(205, 133, 63));
+		frmAssistant.getContentPane().setBackground(new Color(255, 140, 0));
 		frmAssistant.getContentPane().setLayout(null);
 		
 	    txtHola = new JTextField();
