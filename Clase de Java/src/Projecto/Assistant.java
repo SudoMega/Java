@@ -15,7 +15,7 @@ public class Assistant {
 		Call call;
 		TaskList listaTareas = new TaskList();  // Crea el objeto "lista" de la clase TaskList
 		CallList listaLlamadas = new CallList();        // Crea el objeto "llamada" de la clase Call (actualmente no se utiliza)
-		
+
 		System.out.println("Bienvenido, porfavor ingrese una de las siguientes opciones:");
 		
 		while (on == 1) {
@@ -63,7 +63,7 @@ public class Assistant {
                	       }
                	       else {call = new Call(0, null); listaLlamadas.AddCall(call);  break;}
                		
-               	case 6:listaLlamadas.CheckAllCalls();
+               	case 6:listaLlamadas.CheckAllCallsPrint();
                	       break;
                
 		    }
