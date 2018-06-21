@@ -43,7 +43,14 @@ public class TaskList {
 		}
 		
 		
-		
+	}
+	public String[] getLista() {
+		String[] x = new String [list.size()];
+		for (int i = 0; i < list.size(); i++)
+		{
+		    x[i] = list.get(i).GetMessage();
+		}
+		return x;
 		
 	}
 	

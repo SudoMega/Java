@@ -5,9 +5,8 @@ import java.util.ArrayList;
 public class CallList {
 
 	
-	private ArrayList<Call> lostCalls;      // Lista para guardar las llamadas perdidas
-    private ArrayList<Call> callsOfTheDay;  // Lista de las llamadas del dia
-	
+	 ArrayList<Call> lostCalls;      // Lista para guardar las llamadas perdidas
+     ArrayList<Call> callsOfTheDay;  // Lista de las llamadas del dia
     public CallList()
     {
         lostCalls = new ArrayList<Call>();
@@ -20,7 +19,7 @@ public class CallList {
 		lostCalls.get(lostCalls.size()-1).ChangeId(lostCalls.size()-1);
 	}
     
-	public void CheckAllCalls() { 
+	public void CheckAllCallsPrint() { 
 		
 		if (lostCalls.size() == 0) System.out.println("No hay llamdas perdidas!");  //Muestra las llamadas perdidas
 		
@@ -53,4 +52,43 @@ public class CallList {
 		
 
 	}
+	public String[] getLostCalls() {
+		String[] x = new String [lostCalls.size()];
+		for (int i = 0; i < lostCalls.size(); i++)
+		{
+		    x[i] = Integer.toString(lostCalls.get(i).GetNumber());
+		}
+		return x;
+		
+	}
+	public String[] getCallsOfTheDay() {
+		String[] x = new String [callsOfTheDay.size()];
+		for (int i = 0; i < callsOfTheDay.size(); i++)
+		{
+		    x[i] = Integer.toString(callsOfTheDay.get(i).GetNumber());
+		}
+		return x;
+		
+	}
+	public String getCallsOfTheDayMessege(int x) {
+
+		return callsOfTheDay.get(x).GetMessage();
+	}
+	public String getLostCallsMessege(int x) {
+
+		return lostCalls.get(x).GetMessage();
+	}
+	
+	public void CheckAllCalls() { 
+
+		if (lostCalls.size() > 0) {  //Pasa las llamadas perdidas a llamadas del dia
+			
+			callsOfTheDay.addAll(lostCalls);
+			lostCalls.clear();
+			
+		}
+		
+
+	}
+	
 }
