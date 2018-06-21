@@ -3,6 +3,7 @@ package Projecto;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,13 +15,13 @@ public class News {
 	private int id;
 	private String header;
 	private String body;
-	private String url;
+	private URL url;
 	private String initialDate;
 	
 	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	Date date = new Date();
 	
-	  public News(int newsId, String header, String body, String url) {
+	  public News(int newsId, String header, String body, URL url) {
 			id = newsId;
 			initialDate = dateFormat.format(date);
 			this.header = header;
@@ -47,7 +48,7 @@ public class News {
 	public String GetBody() {
 		return body;
 	}
-	public String GetUrl() {
+	public URL GetUrl() {
 		return url;
 	}
 	public String GetDate() {
